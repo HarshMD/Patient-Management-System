@@ -11,9 +11,10 @@ import { UserFormValidation } from "@/lib/validation"
 import { useRouter } from "next/navigation"
 import { createUser } from "@/lib/actions/patient.actions"
 import { FormFieldType } from "./PatientForm"
-import { GenderOptions } from "@/constants"
+import { Doctors, GenderOptions } from "@/constants"
 import {RadioGroup, RadioGroupItem} from "../ui/radio-group"
 import { Label } from "../ui/label"
+// import { SelectItem } from "../ui/select";
 
 
 
@@ -159,7 +160,47 @@ const RegisterForm = ({user}: {user : User}) => {
                     </div>
                 </section>
 
-                <div className="flex flex-col gap-6 xl:flex-row"></div>
+                <div className="flex flex-col gap-6 xl:flex-row">
+                    <CustomFormField
+                    fieldType={FormFieldType.INPUT}
+                    control={form.control}
+                    name="insuranceProvider"
+                    label="Insurance Provider"
+                    placeholder="BlueCross BlueShield"
+                    />
+
+                    <CustomFormField
+                    fieldType={FormFieldType.INPUT}
+                    control={form.control}
+                    name="insurancePolicyNumber"
+                    label="Insurance Policy Number"
+                    placeholder="ABCDE123456"
+                    />
+                </div>
+
+                <div className="flex flex-col gap-6 xl:flex-row">
+                    <CustomFormField
+                    fieldType={FormFieldType.TEXTAREA}
+                    control={form.control}
+                    name="allergies"
+                    label="Allergies (if any)"
+                    placeholder="Peanuts, Penicillin, Pollen"
+                    />
+
+                    <CustomFormField
+                    fieldType={FormFieldType.TEXTAREA}
+                    control={form.control}
+                    name="currentMedication"
+                    label="Current medications"
+                    placeholder="Ibuprofen 200mg, Levothyroxine 50mcg"
+                    />
+                </div>
+                
+                <section className="space-y-6">
+                    <div className = "mb-9 space-y-1">
+                        <h2 className="sub-header">Consent and Privacy</h2>
+                    </div>
+                </section>
                 <div className="flex flex-col gap-6 xl:flex-row"></div>
 
                 <SubmitButton isLoading={isLoading}>Get Started</SubmitButton>

@@ -2,12 +2,13 @@ import Image from "next/image";
 import Link from 'next/link';
 import { Button } from "@/components/ui/button"
 import PatientForm from "@/components/forms/PatientForm";
+import RegisterForm from "@/components/forms/RegisterForm";
 
 export default function Home() {
   return(
     <div className="flex h-screen max-h-screen">
-      <section className="remove-scroolbar container my-auto">
-        <div className="sub-container max-w-[496px]">
+      <section className="remove-scroolbar container">
+        <div className="sub-container max-w-[860px] flex-1 flex-col py-10">
           <img
             src="/assets/icons/logo-full.svg" 
             height={1000}

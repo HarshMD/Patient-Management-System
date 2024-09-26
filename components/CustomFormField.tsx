@@ -16,8 +16,10 @@ import Image from 'next/image';
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
 import DatePicker from "react-datepicker";
+//import { Select, SelectContent, SelectTrigger, SelectValue } from "./ui/select";
 
 import "react-datepicker/dist/react-datepicker.css";
+import { Textarea } from "./ui/textarea";
 
 
 interface CustomProps{
@@ -60,6 +62,17 @@ const RenderField = ({field, props}: {field:any; props: CustomProps}) => {
                     </FormControl>
                 </div>
             )
+            case FormFieldType.TEXTAREA:
+            return (
+                <FormControl>
+                <Textarea
+                    placeholder={props.placeholder}
+                    {...field}
+                    className="shad-textArea"
+                    disabled={props.disable}
+                />
+                </FormControl>
+            );
             case FormFieldType.PHONE_INPUT:
                 return(
                     <FormControl>
@@ -96,6 +109,21 @@ const RenderField = ({field, props}: {field:any; props: CustomProps}) => {
                     </FormControl>
                   </div>
                 )
+                // case FormFieldType.SELECT:
+                //     return (
+                //       <FormControl>
+                //         <Select onValueChange={field.onChange} defaultValue={field.value}>
+                //           <FormControl>
+                //             <SelectTrigger className="shad-select-trigger">
+                //               <SelectValue placeholder={props.placeholder} />
+                //             </SelectTrigger>
+                //           </FormControl>
+                //           <SelectContent className="shad-select-content">
+                //             {props.children}
+                //           </SelectContent>
+                //         </Select>
+                //       </FormControl>
+                //     );
             case FormFieldType.SKELETON:
                 return props.renderSkeleton ? props.renderSkeleton(field) : null;
             
