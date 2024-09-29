@@ -7,14 +7,14 @@ import RegisterForm from "@/components/forms/RegisterForm";
 export default function Home() {
   return(
     <div className="flex h-screen max-h-screen">
-      <section className="remove-scroolbar container">
+      <section className="remove-scroolbar container my-auto">
         <div className="sub-container max-w-[860px] flex-1 flex-col py-10">
           <img
             src="/assets/icons/logo-full.svg" 
             height={1000}
             width={1000}
             alt="patient"
-            className="mb-12 h-10 w-fit"          
+            className="mb-10 h-10 w-fit"          
             />
 
             <PatientForm />
