@@ -66,11 +66,10 @@ export const registerPatient = async ({
     if (identificationDocument) {
       const inputFile =
         identificationDocument &&
-        InputFile.fromBlob(
+        InputFile.fromBuffer(
           identificationDocument?.get("blobFile") as Blob,
           identificationDocument?.get("fileName") as string
         );
-
       file = await storage.createFile(BUCKET_ID!, ID.unique(), inputFile);
     }
 
